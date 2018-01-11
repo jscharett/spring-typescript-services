@@ -135,6 +135,9 @@ public class TypeScriptEndpointProcessor extends AbstractProcessor {
 
         final TypesPackage typesPackage = new TypesPackage(endpointNodes, typeNodes);
 
+        //package.json
+        writePackageJson(engine, endpointArray);
+
         //index.ts
         writeIndexTs(engine, endpointArray, typesPackage);
 
@@ -186,6 +189,16 @@ public class TypeScriptEndpointProcessor extends AbstractProcessor {
             printMessage("Could not process template index.ts. Cause: %s", tex.getMessage());
         } catch (IOException ioe) {
             printMessage("Could not load template index.ts. Cause: %s", ioe.getMessage());
+        }
+    }
+
+    private void writePackageJson(Engine engine, TypeElement[] endpointArray) {
+        try (final Writer out = filer.createResource(StandardLocation.SOURCE_OUTPUT, "", "package.json", endpointArray).openWriter()) {
+            engine.processPackageJson(out);
+        } catch (TemplateException tex) {
+            printMessage("Could not process template package.json. Cause: %s", tex.getMessage());
+        } catch (IOException ioe) {
+            printMessage("Could not load template package.json. Cause: %s", ioe.getMessage());
         }
     }
 

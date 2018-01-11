@@ -1047,8 +1047,8 @@ class TypeScriptEndpointProcessorSpec extends Specification {
         allTSFiles.size() == 0
 
         and: "there must be a ts file with the custom name"
-        destinationFolder.listFiles().length == 4
-        destinationFolder.eachFile { f -> f.name == "CustomName.ts" || f.name == "index.ts" || f.name == "api.module.ts" ||f.name == "serviceconfig.ts" }
+        destinationFolder.listFiles().length == 5
+        destinationFolder.eachFile { f -> f.name == "CustomName.ts" || f.name == "index.ts" || f.name == "api.module.ts" ||f.name == "serviceconfig.ts" || f.name == "package.json" }
 
         cleanup: "remove test java source file"
         // Do not delete the source files: sourceFile.delete(), because they are not generated in this testcase!

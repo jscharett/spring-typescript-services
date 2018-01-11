@@ -88,4 +88,10 @@ public class Engine {
         service.process(null, out);
         out.append("\n");
     }
+
+    public void processPackageJson(final Writer out) throws IOException, TemplateException {
+        final Template temp = this.freemarkerConfiguration.getTemplate("/org/leandreck/endpoints/templates/typescript/package.ftl");
+        temp.process(null, out);
+        out.append("\n");
+    }
 }
