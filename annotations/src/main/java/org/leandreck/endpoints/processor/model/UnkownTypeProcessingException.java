@@ -13,16 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.leandreck.endpoints.examples.abstractbase;
+package org.leandreck.endpoints.processor.model;
 
-import lombok.Data;
-
-import java.util.List;
-
-@Data
-public class Person {
-
-    String id;
-    String name;
-    List<Person> neighbours;
+public class UnkownTypeProcessingException extends RuntimeException {
+    UnkownTypeProcessingException(Throwable cause) {
+        super(cause);
+    }
 }

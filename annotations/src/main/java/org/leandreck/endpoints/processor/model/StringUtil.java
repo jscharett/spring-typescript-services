@@ -37,4 +37,11 @@ public class StringUtil {
                 .findFirst()
                 .orElse(null);
     }
+
+
+    /**
+     * No Instances of this utility class.
+     */
+    private StringUtil() {
+    }
 }
