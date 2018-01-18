@@ -12,3 +12,6 @@ buildNumber.properties
 versioneye.properties
 /annotations/src/test/testcases/org/leandreck/endpoints/case1/Endpoint.java
 *.iml
+.settings
+.project
+.classpath
